@@ -1,0 +1,499 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Должностная инструкция | ПОД/ФТ/ФРОМУ</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f4f7fc;
+            color: #1a2c3e;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* основной контейнер */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* ========== ГРАДИЕНТНЫЙ ЗАГОЛОВОК С ПРОЗРАЧНОСТЬЮ ========== */
+        .gradient-headline {
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #0F2B3D, #1B4F72, #2C7DA0);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: none;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            border-left: 5px solid #E67E22;
+            padding-left: 1.2rem;
+        }
+
+        /* подзаголовки с акцентом */
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 2rem 0 1.2rem 0;
+            color: #0F2B3D;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #E67E22;
+            border-radius: 3px;
+        }
+
+        .subsection-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 1.8rem 0 1rem 0;
+            color: #1e4a6e;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .subsection-title i {
+            color: #E67E22;
+            font-size: 1.5rem;
+        }
+
+        /* Карточки навыков (квалификационные требования) */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .skill-card {
+            background: white;
+            border-radius: 24px;
+            padding: 1.5rem;
+            box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.25s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.15);
+        }
+
+        .skill-icon {
+            font-size: 2.2rem;
+            color: #E67E22;
+            margin-bottom: 1rem;
+        }
+
+        .skill-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #0F2B3D;
+        }
+
+        .skill-card p, .skill-card ul {
+            color: #2c3e44;
+            font-size: 0.95rem;
+        }
+
+        .skill-card ul {
+            padding-left: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .warning-card {
+            background: #fff8e7;
+            border-left: 6px solid #E67E22;
+        }
+
+        /* функции и права — списки с иконками */
+        .functions-list, .rights-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+
+        .functions-list li, .rights-list li {
+            background: white;
+            padding: 0.9rem 1rem;
+            border-radius: 18px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            transition: all 0.2s;
+            border: 1px solid #eef2f5;
+        }
+        .functions-list li i, .rights-list li i {
+            color: #E67E22;
+            font-size: 1.2rem;
+            margin-top: 0.15rem;
+            flex-shrink: 0;
+        }
+
+        /* Кейсы - выделенные блоки */
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin: 1.5rem 0;
+        }
+
+        .case-block {
+            background: linear-gradient(145deg, #ffffff, #fefcf8);
+            border-radius: 28px;
+            padding: 1.5rem;
+            border: 1px solid #ffe6cc;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: all 0.2s;
+        }
+        .case-block:hover {
+            border-color: #E67E22;
+            box-shadow: 0 12px 24px rgba(230,126,34,0.1);
+        }
+        .case-block h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #1f4e6e;
+        }
+        .case-tag {
+            display: inline-block;
+            background: #f0e5d8;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #b45f1b;
+            margin-bottom: 1rem;
+        }
+        .case-block p {
+            color: #2c3e44;
+        }
+
+        /* сетка инструментов в виде тегов */
+        .tools-tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 1.5rem 0 2rem;
+        }
+        .tool-tag {
+            background: #eef2f7;
+            color: #1e4a6e;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border: 1px solid #dce5ec;
+            backdrop-filter: blur(2px);
+        }
+        .tool-tag i {
+            margin-right: 6px;
+            font-size: 0.8rem;
+            color: #E67E22;
+        }
+        .tool-tag:hover {
+            background: #E67E22;
+            color: white;
+            transform: scale(1.03);
+            border-color: #E67E22;
+            cursor: default;
+        }
+        .tool-tag:hover i {
+            color: white;
+        }
+
+        /* утверждающий блок (header стиль) */
+        .approval-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            background: white;
+            padding: 1.2rem 1.8rem;
+            border-radius: 28px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            border: 1px solid #e9edf2;
+        }
+        .approval-left {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #2c5a7a;
+        }
+        .approval-left span {
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+        }
+        .sign-block {
+            text-align: right;
+        }
+        .sign-line {
+            font-size: 0.9rem;
+            color: #5d6f7f;
+            margin-top: 8px;
+            border-bottom: 1px dashed #b0c4de;
+            padding-bottom: 4px;
+        }
+        .city-date {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            font-size: 0.85rem;
+            color: #4b6a82;
+            margin-top: 8px;
+        }
+
+        /* ознакомление внизу */
+        .acknowledge {
+            background: #f0f4f8;
+            border-radius: 24px;
+            padding: 1.5rem 2rem;
+            margin-top: 2.5rem;
+            border-left: 6px solid #E67E22;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+        .ack-text {
+            font-weight: 500;
+        }
+        .sign-place {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+            color: #1f3b4c;
+        }
+
+        hr {
+            margin: 1rem 0;
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, #cbdde9, transparent);
+        }
+
+        /* адаптивность */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.2rem;
+            }
+            .approval-bar {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .sign-block {
+                text-align: left;
+            }
+            .city-date {
+                justify-content: flex-start;
+            }
+            .functions-list, .rights-list {
+                grid-template-columns: 1fr;
+            }
+            .subsection-title {
+                font-size: 1.25rem;
+            }
+            .acknowledge {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        /* стили для текста основного содержания */
+        .legal-text {
+            background: white;
+            border-radius: 28px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            border: 1px solid #eef2f8;
+        }
+        .legal-text p {
+            margin-bottom: 1rem;
+        }
+
+        .badge-sub {
+            background: #eef2fa;
+            border-radius: 30px;
+            padding: 0.2rem 1rem;
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #1f6392;
+        }
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.75rem;
+            color: #7f8c8d;
+        }
+        i.fa, i.far, i.fas {
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- Блок утверждения (УТВЕРЖДАЮ) -->
+    <div class="approval-bar">
+        <div class="approval-left">
+            <span>УТВЕРЖДАЮ:</span><br>
+            Директор ЛФ
+            <div class="sign-line">_______________________</div>
+        </div>
+        <div class="sign-block">
+            <div>город Москва</div>
+            <div class="city-date">
+                <span>«26» декабря 2024 г.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Градиентный заголовок с прозрачностью текста -->
+    <h1 class="gradient-headline">
+        ДОЛЖНОСТНАЯ ИНСТРУКЦИЯ <br>СПЕЦИАЛЬНОГО ДОЛЖНОСТНОГО ЛИЦА,<br> ОТВЕТСТВЕННОГО ЗА СОБЛЮДЕНИЕ ПРАВИЛ ВНУТРЕННЕГО КОНТРОЛЯ
+    </h1>
+
+    <!-- Вводный абзац об отсутствии структурного подразделения -->
+    <div class="legal-text">
+        <p><i class="fas fa-shield-alt" style="color:#E67E22; margin-right:8px;"></i> <strong>Специальные должностные лица</strong>, ответственные за соблюдение Федерального закона от 07.08.2001г. № 115-ФЗ и реализацию правил внутреннего контроля в целях ПОД/ФТ/ФРОМУ: <strong>ответственный сотрудник по ПОД/ФТ/ФРОМУ</strong>, сотрудники структурного подразделения (при его наличии).</p>
+        <p>В настоящее время в Личном фонде отсутствует необходимость в создании структурного подразделения по ПОД/ФТ/ФРОМУ. Соответственно, за внутренний контроль отвечает <strong>специальное должностное лицо, ответственное за соблюдение Правил (ответственный сотрудник)</strong>.</p>
+    </div>
+
+    <!-- КАРТОЧКИ НАВЫКОВ (квалификационные требования) -->
+    <h2 class="section-title">Квалификационные требования</h2>
+    <div class="skills-grid">
+        <div class="skill-card">
+            <div class="skill-icon"><i class="fas fa-graduation-cap"></i></div>
+            <h3>Образование / опыт</h3>
+            <p>Высшее образование по направлениям <strong>«Экономика и управление»</strong> или <strong>«Юриспруденция»</strong>. При отсутствии — опыт работы от 2 лет на должностях, связанных с ПОД/ФТ.</p>
+        </div>
+        <div class="skill-card">
+            <div class="skill-icon"><i class="fas fa-chalkboard-user"></i></div>
+            <h3>Обучение</h3>
+            <p>Прохождение обучения в форме <strong>Целевого Инструктажа</strong> и <strong>Повышения уровня знаний</strong> по ПОД/ФТ/ФРОМУ.</p>
+        </div>
+        <div class="skill-card warning-card">
+            <div class="skill-icon"><i class="fas fa-gavel"></i></div>
+            <h3>Допуск без ограничений</h3>
+            <p>Отсутствие неснятой/непогашенной судимости за преступления в сфере экономики или против государственной власти.</p>
+        </div>
+    </div>
+
+    <!-- ФУНКЦИИ (перечень с иконками) -->
+    <h2 class="section-title">Функции ответственного лица</h2>
+    <div class="subsection-title"><i class="fas fa-tasks"></i> Основные направления деятельности</div>
+    <ul class="functions-list">
+        <li><i class="fas fa-file-alt"></i> Организация разработки и утверждение правил внутреннего контроля (в т.ч. программ осуществления).</li>
+        <li><i class="fas fa-chalkboard"></i> Консультирование сотрудников по реализации программ внутреннего контроля.</li>
+        <li><i class="fas fa-user-check"></i> Идентификация и изучение контрагентов и бенефициаров Личного фонда.</li>
+        <li><i class="fas fa-chart-line"></i> Выявление операций, связанных с легализацией доходов, финансированием терроризма или ФРОМУ.</li>
+        <li><i class="fas fa-book-open"></i> Подготовка методических материалов, консультирование по вопросам ПОД/ФТ.</li>
+        <li><i class="fas fa-users"></i> Организация обучения сотрудников согласно Приказу Росфинмониторинга № 203 (программы, инструктажи).</li>
+        <li><i class="fas fa-paper-plane"></i> Представление сведений в Росфинмониторинг в рамках 115-ФЗ.</li>
+        <li><i class="fas fa-sync-alt"></i> Участие в совершенствовании правил и программ внутреннего контроля.</li>
+        <li><i class="fas fa-lock"></i> Обеспечение конфиденциальности информации, полученной при осуществлении функций.</li>
+        <li><i class="fas fa-database"></i> Обеспечение режима защиты и хранения фиксируемой информации.</li>
+        <li><i class="fas fa-handshake"></i> Взаимодействие с уполномоченными органами по вопросам ПОД/ФТ/ФРОМУ.</li>
+    </ul>
+
+    <!-- ПРАВА -->
+    <h2 class="section-title">Права</h2>
+    <div class="subsection-title"><i class="fas fa-balance-scale"></i> Предоставленные полномочия</div>
+    <ul class="rights-list">
+        <li><i class="fas fa-folder-open"></i> Получать от сотрудников информацию, документы (организационно-распорядительные, бухгалтерские, денежно-расчетные).</li>
+        <li><i class="fas fa-copy"></i> Снимать копии документов, включая файлы, записи из локальных сетей и компьютерных систем.</li>
+        <li><i class="fas fa-ellipsis-h"></i> Осуществлять иные права в соответствии с документами о внутреннем контроле.</li>
+    </ul>
+
+    <!-- ПРИМЕРЫ КЕЙСОВ (выделенные блоки) -->
+    <h2 class="section-title">Примеры кейсов из практики ПОД/ФТ</h2>
+    <div class="cases-grid">
+        <div class="case-block">
+            <div class="case-tag"><i class="fas fa-search"></i> Кейс №1</div>
+            <h4>Выявление подозрительной операции контрагента</h4>
+            <p>Ответственное лицо идентифицировало бенефициара, проведя расширенную проверку. Обнаружены признаки легализации доходов, информация направлена в Росфинмониторинг в установленный срок.</p>
+        </div>
+        <div class="case-block">
+            <div class="case-tag"><i class="fas fa-chalkboard-user"></i> Кейс №2</div>
+            <h4>Целевой инструктаж для новых сотрудников</h4>
+            <p>Разработана и проведена программа обучения по 115-ФЗ. Сотрудники фонда успешно прошли повышение квалификации, минимизированы риски нарушения ПОД/ФТ.</p>
+        </div>
+        <div class="case-block">
+            <div class="case-tag"><i class="fas fa-chart-simple"></i> Кейс №3</div>
+            <h4>Взаимодействие с уполномоченным органом</h4>
+            <p>В рамках запроса предоставлена полная информация о сомнительной сделке. Обеспечена конфиденциальность данных, установлен режим защиты электронных носителей.</p>
+        </div>
+    </div>
+
+    <!-- СЕТКА ИНСТРУМЕНТОВ В ВИДЕ ТЕГОВ -->
+    <h2 class="section-title">Инструменты специалиста по ПОД/ФТ/ФРОМУ</h2>
+    <div class="tools-tag-cloud">
+        <span class="tool-tag"><i class="fas fa-balance-scale"></i> 115-ФЗ</span>
+        <span class="tool-tag"><i class="fas fa-chart-network"></i> ПОД/ФТ/ФРОМУ</span>
+        <span class="tool-tag"><i class="fas fa-building"></i> Росфинмониторинг</span>
+        <span class="tool-tag"><i class="fas fa-id-card"></i> Идентификация</span>
+        <span class="tool-tag"><i class="fas fa-user-tie"></i> Бенефициары</span>
+        <span class="tool-tag"><i class="fas fa-shield-virus"></i> AML/KYC</span>
+        <span class="tool-tag"><i class="fas fa-gavel"></i> Внутренний контроль</span>
+        <span class="tool-tag"><i class="fas fa-file-signature"></i> Программы обучения</span>
+        <span class="tool-tag"><i class="fas fa-laptop-code"></i> ФЭС / мониторинг</span>
+        <span class="tool-tag"><i class="fas fa-database"></i> Конфиденциальность</span>
+        <span class="tool-tag"><i class="fas fa-handshake"></i> Оценка рисков</span>
+        <span class="tool-tag"><i class="fas fa-chart-line"></i> Отчётность</span>
+    </div>
+
+    <!-- Дополнительный блок с документом: нормы о запрете судимости уже в карточке, но для полноты контекста оставим текст -->
+    <div class="legal-text" style="background: #ffffff; margin-top: 0.5rem;">
+        <p><i class="fas fa-info-circle" style="color:#E67E22;"></i> Специальным должностным лицом не может быть лицо, имеющее неснятую или непогашенную судимость за преступления в сфере экономики или против государственной власти.</p>
+    </div>
+
+    <!-- Ознакомление и подпись -->
+    <div class="acknowledge">
+        <div class="ack-text">
+            <strong><i class="fas fa-check-circle"></i> Ознакомлен:</strong><br>
+            специальное должностное лицо Личного фонда,<br> ответственное за соблюдение Правил внутреннего контроля
+        </div>
+        <div class="sign-place">
+            <span>ФИО ___________</span>
+            <span>«__» _______ 20___ г.</span>
+        </div>
+    </div>
+
+    <footer>
+        <hr>
+        <p>© Личный фонд — внутренний контроль в соответствии с 115-ФЗ | Документ актуален на 26 декабря 2024 г.</p>
+    </footer>
+</div>
+</body>
+</html>
